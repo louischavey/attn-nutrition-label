@@ -1,9 +1,19 @@
 {
-  "manifest_version": 3,   
-  "name": "Attentional Nutrition Label", 
+  "manifest_version": 3,
+  "name": "Attentional Nutrition Label",
   "version": "1.0",
   "description": "my first extension says hello world",
   "action": {
     "default_popup": "popup/popup.html"
+  },
+  "permissions": [
+    "declarativeContent"
+  ],
+  "host_permissions": [
+    "*://instagram.com/*",
+    "*://www.instagram.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
   }
 }
