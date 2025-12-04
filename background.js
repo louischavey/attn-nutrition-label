@@ -3,7 +3,7 @@ function setPopupForTab(tabId, url) {
   const isInstagram = /(^|\.)instagram\.com\//.test(url);
   chrome.action.setPopup({
     tabId,
-    popup: isInstagram ? 'popup/popup_instagram.html' : 'popup/popup.html'
+    popup: isInstagram ? 'src/popup/popup_instagram.html' : 'src/popup/popup.html'
   });
 }
 
@@ -18,7 +18,7 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
     const tab = await chrome.tabs.get(activeInfo.tabId);
     setPopupForTab(activeInfo.tabId, tab.url);
   } catch (e) {
-    // ignore
+    console.error(e);
   }
 });
 
@@ -27,6 +27,6 @@ chrome.runtime.onInstalled.addListener(async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (tab) setPopupForTab(tab.id, tab.url);
   } catch (e) {
-    // ignore
+    console.error(e);
   }
 });
