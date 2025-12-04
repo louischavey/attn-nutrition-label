@@ -2,9 +2,9 @@
   "manifest_version": 3,
   "name": "Attentional Nutrition Label",
   "version": "1.0",
-  "description": "my first extension says hello world",
+  "description": "Recognize and explain how common apps and tools capture and consume your attention",
   "action": {
-    "default_popup": "popup/popup.html"
+    "default_popup": "src/popup/popup.html"
   },
   "permissions": [
     "declarativeContent",
@@ -13,6 +13,16 @@
   "host_permissions": [
     "*://instagram.com/*",
     "*://www.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://instagram.com/*",
+        "*://www.instagram.com/*"
+      ],
+      "js": ["src/content/instagram-observer.js"],
+      "run_at": "document_end"
+    }
   ],
   "background": {
     "service_worker": "background.js"
