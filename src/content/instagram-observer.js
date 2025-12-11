@@ -12,16 +12,8 @@ const ATTENTION_SUMMARIES = {
 // Configuration: Add selectors for icons you want to track
 const ICON_SELECTORS = [
   {
-    // name: 'Reels',
     ariaLabel: 'Reels',
-    // childTitle: 'Reels'
   }
-  // Add more selectors here as needed:
-  // {
-  //   name: 'Home',
-  //   ariaLabel: 'Home',
-  //   childTitle: 'Home'
-  // }
 ];
 
 // Track which icons already have overlays to avoid duplicates
