@@ -1,19 +1,14 @@
-// Import attention summaries
-const ATTENTION_SUMMARIES = {
-  'Reels': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.`,
-  'Home': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  'Search': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
-  'Explore': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  'Messages': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
-  'Notifications': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  'Create': `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`
-};
-
 // Configuration: Add selectors for icons you want to track
 const ICON_SELECTORS = [
   {
     ariaLabel: 'Reels',
-  }
+  },
+  {
+    ariaLabel: 'Messages'
+  },
+  {
+    ariaLabel: 'Notifications'
+  },
 ];
 
 // Track which icons already have overlays to avoid duplicates
@@ -29,7 +24,7 @@ function findIconNodes() {
   ICON_SELECTORS.forEach(config => {
     // Find elements with matching aria-label
     const candidates = document.querySelectorAll(`[aria-label="${config.ariaLabel}"]`);
-    // console.log(`[Attention Label] Found ${candidates.length} element(s) with aria-label="${config.ariaLabel}"`);
+    console.log(`[Attention Label] Found ${candidates.length} element(s) with aria-label="${config.ariaLabel}"`);
     
     candidates.forEach(element => {
       // Skip if already processed
@@ -133,6 +128,7 @@ function showTooltip(overlayElement, iconConfig) {
   
   // Get the summary text for this icon
   const summaryText = ATTENTION_SUMMARIES[iconConfig.ariaLabel] || 'No summary available.';
+  console.log(summaryText, " for ", iconConfig.ariaLabel);
   
   // Create tooltip element
   const tooltip = document.createElement('div');

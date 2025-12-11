@@ -20,7 +20,7 @@
         "*://instagram.com/*",
         "*://www.instagram.com/*"
       ],
-      "js": ["src/content/instagram-observer.js"],
+      "js": ["src/content/attention-writeups.js", "src/content/instagram-observer.js"],
       "run_at": "document_end"
     }
   ],
